@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class PanelOpener : MonoBehaviour
 {
-    public GameObject Panel;
+    [SerializeField] // Encapsulation
+    private GameObject Panel;
     // Start is called before the first frame update
 
-    private void OpenMouseDown()
+    private void OnMouseDown()
     {
         Panel.SetActive(true);
     }

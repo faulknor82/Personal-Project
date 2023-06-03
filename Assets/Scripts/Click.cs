@@ -5,7 +5,8 @@ using UnityEngine;
 public class Click : MonoBehaviour
 {
     private Renderer openPanel;
-    public GameObject Panel;
+    [SerializeField] // Encapsulation
+    private GameObject Panel;
     private bool panelIsActive = false;
 
     private void Start()
@@ -15,6 +16,11 @@ public class Click : MonoBehaviour
 
     private void OnMouseDown()
     {
+        PanelIsActive(); // Abstraction
+    }
+
+    void PanelIsActive()
+    {
         if (!panelIsActive)
         {
             Debug.Log("Click!");
@@ -22,7 +28,7 @@ public class Click : MonoBehaviour
             panelIsActive = true;
         }
 
-        else if(panelIsActive)
+        else if (panelIsActive)
         {
             Debug.Log("Unclicked!");
             Panel.SetActive(false);
