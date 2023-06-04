@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] // Encapsulation
     private float speed = 0.12f;
-    private float zBound = -20.0f;
+    private float zBound = 18.0f;
     private float xBound = 12.0f;
 
     // Update is called once per frame
@@ -29,7 +29,11 @@ public class PlayerController : MonoBehaviour
     // Prevent player from moving out of playing area
     void Boundary()
     {
-        if (transform.position.z < zBound)
+        if (transform.position.z < -zBound)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -zBound);
+        }
+        if(transform.position.z > zBound)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, zBound);
         }
